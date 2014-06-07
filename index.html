@@ -81,7 +81,7 @@
   						<td>{{product.quantity}}</td>
   						<td>{{product.rate | currency}}</td>
   						<td>{{product.quantity * product.rate | currency}}</td>
-  						<td><button class="btn btn-danger btn-sm" ng-click="remove($index)">X</button></td>
+  						<td class="hidden-print"><button class="btn btn-danger btn-sm" ng-click="remove($index)">X</button></td>
   					</tr>
 				</tbody>
 			</table>
