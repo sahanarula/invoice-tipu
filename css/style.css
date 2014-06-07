@@ -1,0 +1,51 @@
+#header{
+	background-color: lightblue;
+	color: #333;
+	text-align: center;
+	margin-top: 10px;
+}
+input[type="text"]{
+	border: 0px;
+}
+#address input[type="text"]{
+	border: 0px;
+	width: 50%;
+}
+#company{
+	height: 40px;
+	width: 250px;
+	font-size: 20px;
+}
+#to_address{
+	margin-top: 20px;
+	border: 1px solid #aaa;
+	padding-left: 15px;
+}
+#to_address h4{
+	color: #555;
+}
+#details{
+	text-align: right;
+}
+input[type="date"]{
+	border: 0px;
+}
+#total{
+	margin-right: 140px;
+}
+#total td:nth-child(2){
+	text-align: center;
+}
+footer {
+	margin-top: 30px;
+}
+#submit{
+	margin-top: 100px;
+}
+.label{
+	cursor: pointer;
+}
+#form input{
+	width: 30%;
+	border: 1px solid #bbb;
+}

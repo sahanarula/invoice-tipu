@@ -1,0 +1,121 @@
+<html ng-app="invoice">
+<head>
+	<title>invoice-tipu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet" media="screen,print">
+    <script src="dist/js/angular.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel=stylesheet href="css/style.css">
+</head>
+<body>
+	<div class="container" ng-controller="bill">
+  		<div class="row hidden-print" id="header" >
+			<h3>Invoice-Tipu</h3>
+		</div>
+		<div class="row">
+			<div class="col-xs-6" id="address">
+				<div class="row" id="from_address">
+					<input type="text" id="company" placeholder="my company name...">
+					<br>
+					<input type="text"  placeholder="my address 1">
+					<br>
+					<input type="text"  placeholder="my address 2">
+					<br>
+					<input type="text" placeholder="my address 3">
+				</div>
+				<br>
+				<div class="row" id="from_address">
+					<input type="text" placeholder="phone 1">
+					<br>
+					<input type="text" placeholder="phone 2">
+					<br>
+					<input type="text" placeholder="myemail@mail.com">
+					<br>
+					<input type="text" placeholder="www.indeant.com">
+				</div>
+				<div class="row" id="to_address">
+					<h4>Bill to:</h4>
+					<input type="text" placeholder="company">
+					<br>
+					<input type="text" placeholder="address 1">
+					<br>
+					<input type="text" placeholder="address 2">
+					<br>
+					<input type="text" placeholder="phone">
+				</div>
+			</div>
+			<div class="col-xs-6" id="details">
+				<img src="images/indeant.png" alt="">
+				<br><br>
+				<div class="form-group">
+					<label>Invoice No:</label>
+					<input type="text" placeholder="#xyz">
+				</div>
+				<div class="form-group">
+					<label>Date:</label>
+					<input type="date">
+				</div>
+				<div class="form-group">
+					<label>Terms:</label>
+					<input type="text" placeholder="cash..">
+				</div>
+				<div class="form-group">
+					<label>Due Date:</label>
+					<input type="date">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<table class="table table-condensed">
+  				<thead>
+  					<th>Description</th>
+  					<th>Quantity</th>
+  					<th>Rate</th>
+  					<th>Amount</th>
+  					<th class="hidden-print">Remove</th>
+  				</thead>
+  				<tbody>
+  					<tr ng-repeat="product in products">
+  						<td>{{product.description}}</td>
+  						<td>{{product.quantity}}</td>
+  						<td>{{product.rate | currency}}</td>
+  						<td>{{product.quantity * product.rate | currency}}</td>
+  						<td><button class="btn btn-danger btn-sm" ng-click="remove($index)">X</button></td>
+  					</tr>
+				</tbody>
+			</table>
+			<form class="form-group hidden-print" id="form" name="form">
+				<input type="text" placeholder="Description.." ng-model="description" required>
+				<input type="number" placeholder="Quantity.." ng-model="quantity" required>
+				<input type="number" placeholder="Rate.." ng-model="rate" required>
+				<button class="btn btn-warning btn-small" ng-click="add()" ng-disabled="form.$invalid">Add</button>
+			</form>
+
+			<table class="pull-right" id="total">
+				<tbody>
+					<tr>
+	  					<td>Subtotal:</td>
+	  					<td>{{subTotal | currency}}</td>
+  					</tr>
+  					<tr>
+	  					<td>Tax: <input type="number" placeholder="10%" ng-model="tax"></td>
+  					</tr>
+  					<tr>
+	  					<td>Total: <input type="text"></td>
+	  					<td>{{total | currency}}</td>
+  					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row" id="submit">
+			<button class="btn btn-primary pull-right hidden-print" onClick="window.print()">Save and Print</button>
+		</div>
+		<footer>
+		  <p>Posted by: Sahil Narula</p>
+		  <p>Contact information: <a href="http://indeant.com" target="_blank">
+		  indeant.com</a>.</p>
+		</footer>
+	</div>
+</body>
+</html>
